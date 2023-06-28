@@ -1,0 +1,31 @@
+﻿@page "{Id}"
+@model CustomBMS.Pages.AccountModel
+@{
+    Layout = "_LayoutAccount";
+    ViewData["AccountName"] = $"{Model.user.FristName} {Model.user.LastName}";
+}
+
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>تاریخ</th>
+            <th> بستانکار </th>
+            <th> بدهکار </th>
+            <th> توضیحات </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var action in Model.transactions)
+        {
+            <tr>
+                <td>@action.Date</td>
+                <td>@action.credit</td>
+                <td>@action.debit</td>
+                <td>@action.Discription</td>
+
+            </tr>
+        }
+    </tbody>
+</table>

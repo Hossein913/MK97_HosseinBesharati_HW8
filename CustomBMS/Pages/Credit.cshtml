@@ -1,0 +1,19 @@
+﻿@page
+@model CustomBMS.Pages.CreditModel
+@{
+}
+
+<Form method="post">
+            <div class="col-4">
+        <input asp-for="actionVM.amount" class="form-control m-2" placeholder="مبلغ برداشت " aria-label="Fname">
+            </div>
+            <div class="col-4">
+        <input asp-for="actionVM.Description" class="form-control m-2" placeholder=" توضیحات " aria-label="Fname">
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="d-grid gap-2">
+            <button type="submit" class="btn btn-primary m-4">ثبت</button>
+            </div>
+        </div>
+</Form>

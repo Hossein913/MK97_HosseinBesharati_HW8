@@ -1,0 +1,39 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class=" d-flex align-items-center justify-content-center" style="margin-top: 10%;">
+    <div class="col-xl-3 col-lg-3 col-md-5 col-sm-6 border border-1 rounded-3 p-4">
+        <form method="post">
+            <div class="row">
+                <div class="col-5">
+                    <label asp-for="authenticate.UserName"></label>
+                </div>
+                <div class="col-7">
+                    <input class="form-control" asp-for="authenticate.UserName">
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-5">
+                    <label asp-for="authenticate.Password"></label>
+                </div>
+                <div class="col-7">
+                    <input class="form-control" asp-for="authenticate.Password">
+                </div>
+            </div>
+
+            <div class="col-12 d-flex align-items-center justify-content-center mt-4">
+                <div class=" form-check">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                    <label class="form-check-label" for="exampleCheck1">مرا به خاطر بسپار</label>
+                </div>
+            </div>
+            <div class="col-12 d-flex align-items-center justify-content-center mt-2">
+                <button type="submit" class="btn btn-primary">ورود</button>
+            </div>
+
+        </form>
+    </div>
+</div>
