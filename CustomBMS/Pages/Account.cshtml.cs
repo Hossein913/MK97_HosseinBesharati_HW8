@@ -9,8 +9,8 @@ namespace CustomBMS.Pages
 {
     public class AccountModel : PageModel
     {
-        private readonly UserServices _userServices;
-        private readonly TransactionRepository _transactionRepository;
+        private readonly IUserServices _userServices;
+        private readonly ITransactionRepository _transactionRepository;
 
         [BindProperty]
         public User user { get; set; }
@@ -18,10 +18,10 @@ namespace CustomBMS.Pages
         [BindProperty]
         public IEnumerable<TransactionModel> transactions { get; set; }
 
-        public AccountModel()
+        public AccountModel(IUserServices userServices,ITransactionRepository TransactionRepository)
         {
-            _userServices = new UserServices();
-            _transactionRepository = new TransactionRepository();
+            _userServices = userServices;
+            _transactionRepository = TransactionRepository;
         }
         
 

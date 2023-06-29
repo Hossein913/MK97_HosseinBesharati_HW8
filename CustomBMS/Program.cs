@@ -4,8 +4,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
-builder.Services.AddTransient<IUserServices, UserServices>();
-builder.Services.AddTransient<ITransactionRepository,TransactionRepository>();
+builder.Services.AddSingleton<IUserServices, UserServices>();
+builder.Services.AddSingleton<ITransactionRepository,TransactionRepository>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

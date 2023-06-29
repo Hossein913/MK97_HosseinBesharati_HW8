@@ -1,4 +1,9 @@
-﻿<!DOCTYPE html>
+﻿
+@{
+    string Id = (string) ViewData["UserId"];
+}
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -12,7 +17,7 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand " asp-area="" asp-page="/Index">@ViewData["AccountName"] خوش آمدید</a>
+                <a class="navbar-brand bg-danger" asp-area="" asp-page="/Index">@ViewData["AccountName"] خوش آمدید</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -20,13 +25,13 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark " asp-area="" asp-page="/Account">گردش حساب</a>
+                            <a class="nav-link text-dark " asp-area="" asp-page="/Account" asp-route-id="@Id">گردش حساب</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark " asp-area="" asp-page="/Credit">برداشت از حساب</a>
+                            <a class="nav-link text-dark " asp-area="" asp-page="/Credit" asp-route-id="@Id">برداشت از حساب</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark " asp-area="" asp-page="/Debit">واریز به حساب</a>
+                            <a class="nav-link text-dark " asp-area="" asp-page="/Debit" asp-route-id="@Id">واریز به حساب</a>
                         </li>
                         <li class="nav-item">
                             <p class="text-dark mt-2 ms-5" >مانده:</p>
@@ -36,7 +41,7 @@
             </div>
         </nav>
     </header>
-    <div class="container">
+    <div class="container-md">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>

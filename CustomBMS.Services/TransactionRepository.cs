@@ -16,7 +16,13 @@ namespace CustomBMS.Services
 
         public TransactionRepository()
         {
-           _transactions = new List<TransactionModel>() {};
+           _transactions = new List<TransactionModel>() 
+           {
+
+            new TransactionModel() { ID = 1, credit =0 , debit = 900000, Discription = "انتقال به حساب", Date = DateTime.Parse("6/20/2023 10:41:31 AM"), balance = 900000 },
+            new TransactionModel() { ID = 2, credit =100000 , debit = 0, Discription = "خرید اینترنتی", Date = DateTime.Parse("6/25/2023 6:41:31 AM"), balance = 800000 },
+            new TransactionModel() { ID = 3, credit =0 , debit = 1000000, Discription = "کارت به کارت", Date = DateTime.Parse("6/29/2023 8:41:31 AM"), balance = 1800000 }
+        };
         }
 
 
@@ -44,12 +50,16 @@ namespace CustomBMS.Services
 
         public int GetLastID()
         {
-            int? Id = _transactions.Last().ID;
-            if (Id == null)
+            int Id;
+
+            if (_transactions.Count > 0)
             {
-                return 0;
+                Id = _transactions.Last().ID;
+                return (int)Id;
             }
-            return (int)Id; 
+            return 0;
+
+            
         }
     }
 }

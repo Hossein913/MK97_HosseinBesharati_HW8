@@ -15,7 +15,7 @@ namespace CustomBMS.Services
         {
             _users = new List<User>()
                 {
-                    new User {ID=21,FristName="حسین",LastName="بشارتی",NationalCode="1111111111",PhoneNumber="09182222222" }
+                    new User {ID=21,FristName="حسین",LastName="بشارتی",NationalCode="1111111111",PhoneNumber="0918" }
                 };
         }
         public IEnumerable<User> GetAllUsers()

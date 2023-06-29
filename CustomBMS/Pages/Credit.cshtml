@@ -1,9 +1,11 @@
-﻿@page
+﻿@page "{id}"
 @model CustomBMS.Pages.CreditModel
 @{
+    Layout = "_LayoutAccount";
+    ViewData["UserId"] = $"{Model.CurentUserId}";
 }
 
-<Form method="post">
+<Form method="post" asp-route-id="@Model.CurentUserId">
             <div class="col-4">
         <input asp-for="actionVM.amount" class="form-control m-2" placeholder="مبلغ برداشت " aria-label="Fname">
             </div>
@@ -11,7 +13,7 @@
         <input asp-for="actionVM.Description" class="form-control m-2" placeholder=" توضیحات " aria-label="Fname">
             </div>
         </div>
-        <div class="col-12">
+        <div class="col-3">
             <div class="d-grid gap-2">
             <button type="submit" class="btn btn-primary m-4">ثبت</button>
             </div>

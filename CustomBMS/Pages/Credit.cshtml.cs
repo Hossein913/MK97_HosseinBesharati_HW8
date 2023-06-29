@@ -16,14 +16,14 @@ namespace CustomBMS.Pages
             _transactionRepository = TransactionRepository;
         }
 
-        public void OnGet()
+         public int CurentUserId { get; set; }
+        public void OnGet(int id)
         {
-
+            CurentUserId = id;
         }
 
-        
-         public ActionVM actionVM = new ActionVM();
-        public void OnPost()
+        public ActionVM actionVM = new ActionVM();
+        public void OnPost(int id)
         {
 
             actionVM.amount = Convert.ToDecimal(Request.Form["actionVM.amount"]);
@@ -39,10 +39,11 @@ namespace CustomBMS.Pages
             {
                 _balance -= actionVM.amount;
             }
-            int id = _transactionRepository.GetLastID();
-            actionModel = new TransactionModel() { ID = id, credit = actionVM.amount, debit = 0, Discription = actionVM.Description, Date = DateTime.Now, balance = _balance };
-
-
+            int Actionid = _transactionRepository.GetLastID();
+            actionModel = new TransactionModel() { ID = Actionid + 1, credit = actionVM.amount, debit = 0, Discription = actionVM.Description, Date = DateTime.Now, balance = _balance };
+            _transactionRepository.Create(actionModel);
+            CurentUserId = id;
+            actionVM = new ActionVM();
         }
     }
 }

@@ -3,6 +3,7 @@
 @{
     Layout = "_LayoutAccount";
     ViewData["AccountName"] = $"{Model.user.FristName} {Model.user.LastName}";
+    ViewData["UserId"] = $"{Model.user.ID}";
 }
 
 
@@ -14,6 +15,7 @@
             <th> بستانکار </th>
             <th> بدهکار </th>
             <th> توضیحات </th>
+            <th> مانده </th>
         </tr>
     </thead>
     <tbody>
@@ -24,6 +26,7 @@
                 <td>@action.credit</td>
                 <td>@action.debit</td>
                 <td>@action.Discription</td>
+                <td>@action.balance</td>
 
             </tr>
         }
